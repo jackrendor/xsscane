@@ -46,9 +46,6 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println("\u001b[96m" + string(body) + "\u001b[0m")
-	if r.Method == "GET" {
-
-	}
 	tmpl, _ := template.ParseFiles("xsscane.js")
 	tmpl.Execute(w, r.Host)
 }

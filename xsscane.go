@@ -8,7 +8,8 @@ import (
 	"strings"
 )
 
-var banner string = ` ___    ___ ________   ________  ________  ________  ________   _______      
+var banner string = `
+___    ___ ________   ________  ________  ________  ________   _______      
 |\  \  /  /|\   ____\ |\   ____\|\   ____\|\   __  \|\   ___  \|\  ___ \     
 \ \  \/  / | \  \___|_\ \  \___|\ \  \___|\ \  \|\  \ \  \\ \  \ \   __/|    
  \ \    / / \ \_____  \\ \_____  \ \  \    \ \   __  \ \  \\ \  \ \  \_|/__  
@@ -31,6 +32,8 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println("\u001b[96m" + string(body) + "\u001b[0m\n\n-----------------")
 }
+
+func callBackFromScript()
 
 func main() {
 	var listeningVar string

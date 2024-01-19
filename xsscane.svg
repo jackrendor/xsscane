@@ -1,0 +1,20 @@
+
+<svg id="logo3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 589 479" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+    <defs>
+        <linearGradient id="logo3-s-path1-fill" x1="0.027506" y1="0.065033" x2="0.788544"
+            y2="0.352267" spreadMethod="pad" gradientUnits="objectBoundingBox"
+            gradientTransform="translate(0 0)">
+            <stop id="logo3-s-path1-fill-0" offset="0%" stop-color="#000" />
+            <stop id="logo3-s-path1-fill-1" offset="100%" stop-color="#08d5f3" />
+        </linearGradient>
+    </defs>
+    <path id="logo3-s-path1"
+        d="M275.58961,194.81146l-57.602412,22.009108-56.718703-51.240967L191.90914,110.0105l-62.135386,26.965741c-62.02505-54.12311-89.302987-79.844327-88.321817-79.844327s51.205823-3.188244,150.457203-9.355394L320.00002,130.6151L427.50873,57.02725c19.07964-23.98519,66.42552-25.27893,85.61154,0L542.3057,96.76469L492.26599,110.0105c-16.41262,64.50451-85.80926,141.72975-137.83641,180.82398l12.12922,44.47383-46.55879,106.99258-44.41039-45.33569-.00001-202.15374Z"
+        transform="matrix(1.141425 0 0 1.141426-40.581171-36.853736)"
+        fill="url(#logo3-s-path1-fill)" stroke="#1e292c" stroke-width="10" />
+    
+    <script type="text/javascript">
+        alert(1); 
+    </script>
+</svg>

@@ -1,5 +1,5 @@
 window.onload = function() {
-    fetch("http://{{.}}/callback", {
+    fetch(window.location.protocol+"//{{.}}/callback", {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',

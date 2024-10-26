@@ -34,6 +34,7 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Access-Control-Allow-Origin", "*")
 	w.Header().Add("Access-Control-Allow-Credentials", "true")
 	w.Header().Add("Access-Control-Allow-Headers", "*")
+	w.Header().Add("Content-Type", "text/javascript")
 
 	fmt.Printf("\n\n  \u001b[30;102m[%s] Connected\u001b[0m\n", r.RemoteAddr)
 	fmt.Printf("\u001b[93m%s\u001b[0m \u001b[96m%s%s\u001b[0m\n", r.Method, r.Host, r.RequestURI)

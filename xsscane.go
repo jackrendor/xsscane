@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -29,6 +30,9 @@ type callBackStruct struct {
 	Cookie string `json:"cookie"`
 }
 
+//go:embed payloads
+var javascriptPayloads embed.FS
+
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	//http.CanonicalHeaderKey()
 	w.Header().Add("Access-Control-Allow-Origin", "*")
@@ -47,7 +51,11 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println("\u001b[96m" + string(body) + "\u001b[0m")
-	tmpl, _ := template.ParseFiles("xsscane.js")
+	tmpl, parseErr := template.ParseFS(javascriptPayloads, "payloads/xsscane.js")
+	if parseErr != nil {
+		log.Println("Error parsing xsscane.js:", parseErr.Error())
+		return
+	}
 	tmpl.Execute(w, r.Host)
 }
 
@@ -69,7 +77,11 @@ func svgHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println("\u001b[96m" + string(body) + "\u001b[0m")
-	tmpl, _ := template.ParseFiles("xsscane.svg")
+	tmpl, parseErr := template.ParseFS(javascriptPayloads, "payloads/xsscane.svg")
+	if parseErr != nil {
+		log.Println("Error parsing xsscane.js:", parseErr.Error())
+		return
+	}
 	tmpl.Execute(w, r.Host)
 }
 
